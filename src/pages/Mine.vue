@@ -45,7 +45,7 @@
 export default {
   data() {
     return {
-      name: '妈妈',
+      name: '赵子龙',
       currentPageshanghai: 1,
       currentPagebeijing: 1,
       pageSize: 2,
