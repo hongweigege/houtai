@@ -45,6 +45,7 @@
 export default {
   data() {
     return {
+      name: '林洪玮',
       currentPageshanghai: 1,
       currentPagebeijing: 1,
       pageSize: 2,
