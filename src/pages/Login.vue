@@ -42,6 +42,7 @@ export default {
     };
     return {
       show: 'lin',
+      hh: 'ddd',
       ruleForm: {
         username: "",
         password: ""
