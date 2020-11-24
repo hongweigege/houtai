@@ -25,6 +25,7 @@
 export default {
   name: 'login',
   data() {
+    
     var user = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入用户名"));
@@ -40,6 +41,7 @@ export default {
       }
     };
     return {
+      show: 'lin',
       ruleForm: {
         username: "",
         password: ""
