@@ -45,8 +45,8 @@
 export default {
   data() {
     return {
-      name: 'ee',
-      ww: '222',
+      name: 'ccc',
+      ww: 'ccc',
       currentPageshanghai: 1,
       currentPagebeijing: 1,
       pageSize: 2,
