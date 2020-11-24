@@ -6,7 +6,10 @@
 
 <script>
 export default {
-    
+    name: "select1",
+    created() {
+        console.log('this.$route', this.$route)
+    }
 }
 </script>
 

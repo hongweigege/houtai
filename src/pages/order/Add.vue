@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: "Add",
+  name: "add",
   data() {
     return {
       currentDate: new Date(),

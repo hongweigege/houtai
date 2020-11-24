@@ -9,30 +9,30 @@ const routes = [
     {
         path: '/', meta: { requiresAuth: false }, component: Index,
         children: [
-            { path: '/', redirect: { name: 'Home' } },
-            { path: '/home', name: 'Home', component: Home },
-            { path: '/notfound', name: 'NotFound', component: () => import('../pages/NotFound.vue') },
+            { path: '/', redirect: { name: 'home' } },
+            { path: '/home', name: 'home', component: Home },
+            { path: '/notfound', name: 'notFound', component: () => import('../pages/NotFound.vue') },
             {
                 path: '/order',
                 component: () => import('../pages/order/Default.vue'),
                 children: [
-                    { path: '', redirect: { name: 'List' } },
+                    { path: '', redirect: { name: 'list' } },
                     {
-                        path: 'list', name: 'List', component: () => import('../pages/order/List.vue'), children: [
+                        path: 'list', name: 'list', component: () => import('../pages/order/List.vue'), children: [
                             { path: 'select1', name: 'select1', component: () => import('../pages/order/select1.vue') }
                         ]
                     },
                     {
-                        path: 'add', name: 'Add', component: () => import('../pages/order/Add.vue'),
+                        path: 'add', name: 'add', component: () => import('../pages/order/Add.vue'),
                     },
-                    { path: 'edit', name: 'Edit', component: () => import('../pages/order/Edit.vue') }
+                    { path: 'edit', name: 'edit', component: () => import('../pages/order/Edit.vue') }
                 ]
             },
-            { path: '/mine', name: 'Mine', component: () => import('../pages/Mine.vue') }
+            { path: '/mine', name: 'mine', component: () => import('../pages/Mine.vue') }
         ]
     },
-    { path: '/login', name: 'Login', component: () => import('../pages/Login.vue') },
-    { path: '/reg', name: 'Reg', component: () => import('../pages/Reg.vue') }
+    { path: '/login', name: 'login', component: () => import('../pages/Login.vue') },
+    { path: '/reg', name: 'reg', component: () => import('../pages/Reg.vue') }
 
 ]
 
@@ -40,7 +40,6 @@ const router = new VueRouter({
     mode: 'history',
     routes,
     scrollBehavior(to, from, savedPosition) {
-        console.log('savedPosition', savedPosition)
         if (savedPosition) {
             return savedPosition
         } else {

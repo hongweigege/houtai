@@ -2,7 +2,7 @@
   <el-container direction="horizontal">
     <el-aside width="200px" v-show="true">
       <el-menu
-        :default-active="$route.path"
+        :default-active="onRoutes"
         class="el-menu-vertical-demo"
         background-color="#545c64"
         text-color="#fff"
@@ -59,13 +59,21 @@ export default {
           text: "英雄管理",
           path: "/order",
           submenu: [
-            { text: "列表", path: "/list" },
+            {
+              text: "列表",
+              path: "/list"
+            },
             { text: "添加", path: "/add" }
           ]
         },
         { text: "个人中心", path: "/mine" }
       ],
-      current: "/home"
+      current: "/home",
+      showlist: [
+        { name: "/home", pathChild: [] },
+        { name: "/order/list", pathChild: ["select1"] },
+        { name: "/mine", pathChild: [] }
+      ]
     };
   },
 
@@ -74,16 +82,32 @@ export default {
       showTabbar(state) {
         return state.user.currentUser;
       }
-    })
+    }),
+
+    onRoutes() {
+      let currentPath = this.$route.name;
+      if (currentPath == null) {
+        return "/home";
+      }
+      for (let i = 0; i < this.showlist.length; i++) {
+        let flag = this.showlist[i].pathChild.some(
+          items => items == currentPath
+        );
+        if (flag) {
+          return this.showlist[i].name;
+        }
+      }
+      return this.$route.path;
+    }
   },
 
   methods: {
     logout() {
       this.$store.commit("user/logout");
       this.$router.replace("/login");
-    },
+    }
+  }
 
-  },
   // beforeRouteLeave(to, from, next) {
   //   this.scrollTop =
   //     document.documentElement.scrollTop || document.body.scrollTop;
@@ -95,8 +119,6 @@ export default {
   //     document.body.scrollTop = vm.scrollTop;
   //   });
   // }
-
-  
 };
 </script>
 

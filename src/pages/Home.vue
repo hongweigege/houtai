@@ -16,7 +16,7 @@
 // import { mapState } from "vuex";
 
 export default {
-  name: "Home",
+  name: "home",
   data() {
     return {
       radio: "",
@@ -26,12 +26,12 @@ export default {
 
   methods: {},
 
-  mounted() {
-    console.log("Home");
-  },
-  activated() {
-    console.log("Homeactived");
-  }
+  // mounted() {
+  //   console.log("Home");
+  // },
+  // activated() {
+  //   console.log("Homeactived");
+  // }
 };
 </script>
 

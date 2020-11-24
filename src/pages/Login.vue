@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'Login',
+  name: 'login',
   data() {
     var user = (rule, value, callback) => {
       if (value === "") {

@@ -11,6 +11,7 @@ Vue.use(ElementUI);
 Vue.use(VueRouter)
 
 Vue.config.productionTip = false
+Vue.config.silent = true
 Vue.prototype.$request = request
 const originalPush = VueRouter.prototype.push
 // 重写了原型上的push方法，统一的处理了错误信息
